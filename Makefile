@@ -101,13 +101,13 @@ OBJS = ${SRCS:c=o}
 all : $(NAME)
 
 $(LIBFT) : $(OBJS)
-	$(AR) $(ARFLAGS) $(ARCHIVE) $^
+	@$(AR) $(ARFLAGS) $(ARCHIVE) $^
 
-.c.o : %.c $(INCLUDES)
+%.o : %.c $(INCLUDES)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 clean :
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
 	@rm -f $(ARCHIVE) $(NAME)
